@@ -1,5 +1,5 @@
 ## these two functions together can compute and cache the inverse of a matrix 
-##  this can save repeated calculations of the inverse
+##  this avoids repeated calculations of the inverse
 
 ## this creates a special "matrix" object that can cache its inverse
 
@@ -7,7 +7,7 @@ makeCacheMatrix <- function(x = matrix()) {
         s<-NULL
         set <- function(y){
                 x<<-y
-                s<-NULL
+                s<<-NULL
         }
         get <-function() x
         setsolve <-function(solve) s<<-solve
@@ -18,7 +18,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## this function computes the inverse of the magric returned by makeCacheMatrix
+## this function computes the inverse of the matrix returned by makeCacheMatrix
 
 cacheSolve <- function(x, ...) {
         s<-x$getsolve()
